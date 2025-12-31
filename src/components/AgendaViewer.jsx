@@ -31,7 +31,7 @@ export default function AgendaViewer({ eventId }) {
             <div className="min-h-screen bg-white flex items-center justify-center">
                 <div className="flex flex-col items-center gap-4">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-black"></div>
-                    <p className="text-gray-500 font-medium">الصبر جميل</p>
+                    <p className="text-gray-500 font-medium">Loading...</p>
                 </div>
             </div>
         );
@@ -42,7 +42,7 @@ export default function AgendaViewer({ eventId }) {
             <div className="min-h-screen bg-white flex items-center justify-center">
                 <div className="text-center">
                     <CalendarIcon size={64} className="mx-auto text-gray-300 mb-4" />
-                    <h2 className="text-2xl text-gray-600">الأجندة غير موجودة</h2>
+                    <h2 className="text-2xl text-gray-600">Agenda not found</h2>
                 </div>
             </div>
         );
@@ -154,7 +154,7 @@ export default function AgendaViewer({ eventId }) {
                     ) : (
                         <div className="text-center py-16 text-gray-400">
                             <CalendarIcon size={64} className="mx-auto mb-4 opacity-30" />
-                            <p>لا توجد جلسات في هذا اليوم</p>
+                            <p>No slots for this day</p>
                         </div>
                     )}
                 </div>

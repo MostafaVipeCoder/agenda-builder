@@ -316,7 +316,7 @@ export default function EventBuilder({ event, onBack }) {
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="flex flex-col items-center gap-4">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-black"></div>
-                    <p className="text-gray-500 font-medium">الصبر جميل</p>
+                    <p className="text-gray-500 font-medium">Loading...</p>
                 </div>
             </div>
         );
@@ -339,7 +339,7 @@ export default function EventBuilder({ event, onBack }) {
                                 <h1 className="text-xl md:text-2xl font-light text-gray-900 truncate">
                                     {eventDetails.event_name || '...'}
                                 </h1>
-                                <p className="text-gray-500 text-sm">تعديل الأجندة</p>
+                                <p className="text-gray-500 text-sm">Edit Agenda</p>
                             </div>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
@@ -351,7 +351,7 @@ export default function EventBuilder({ event, onBack }) {
                                     }`}
                             >
                                 {copied ? <Check size={20} /> : <Copy size={20} />}
-                                <span>{copied ? 'تم النسخ' : 'نسخ الرابط'}</span>
+                                <span>{copied ? 'Copied' : 'Copy Link'}</span>
                             </button>
                             <a
                                 href={agendaUrl}
@@ -360,7 +360,7 @@ export default function EventBuilder({ event, onBack }) {
                                 className="flex items-center justify-center gap-2 px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition"
                             >
                                 <ExternalLink size={20} />
-                                <span>عرض الأجندة</span>
+                                <span>View Agenda</span>
                             </a>
                         </div>
                     </div>
@@ -374,7 +374,7 @@ export default function EventBuilder({ event, onBack }) {
                                 : 'border-transparent text-gray-500 hover:text-gray-700'
                                 }`}
                         >
-                            الأيام والـ Slots
+                            Days & Slots
                         </button>
                         <button
                             onClick={() => setActiveTab('images')}
@@ -383,7 +383,7 @@ export default function EventBuilder({ event, onBack }) {
                                 : 'border-transparent text-gray-500 hover:text-gray-700'
                                 }`}
                         >
-                            الصور
+                            Images
                         </button>
                     </div>
                 </div>
@@ -395,7 +395,7 @@ export default function EventBuilder({ event, onBack }) {
                     <div className="space-y-6">
                         {/* Add Day Form */}
                         <div className="bg-white rounded-lg border p-6">
-                            <h3 className="text-lg font-medium mb-4">إضافة يوم جديد</h3>
+                            <h3 className="text-lg font-medium mb-4">Add New Day</h3>
                             <div className="flex flex-col gap-2">
                                 <div className="flex flex-col md:flex-row gap-4">
                                     <div className="flex-1 relative">
@@ -406,12 +406,12 @@ export default function EventBuilder({ event, onBack }) {
                                                 setNewDayName(e.target.value);
                                                 if (e.target.value.trim()) setDayError(false);
                                             }}
-                                            placeholder="اسم اليوم (مثال: Day 1)"
+                                            placeholder="Day Name (e.g., Day 1)"
                                             className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 transition ${dayError ? 'border-red-500 focus:ring-red-200' : 'focus:ring-black'
                                                 }`}
                                         />
                                         {dayError && (
-                                            <p className="text-red-500 text-xs mt-1 absolute -bottom-5 right-0">اكتب اسم اليوم لتتمكن من اضافته</p>
+                                            <p className="text-red-500 text-xs mt-1 absolute -bottom-5 right-0">Enter day name to add</p>
                                         )}
                                     </div>
                                     <input
@@ -479,7 +479,7 @@ export default function EventBuilder({ event, onBack }) {
                                                 <button
                                                     onClick={() => handleStartEditDay(day)}
                                                     className="text-gray-400 hover:text-black transition"
-                                                    title="تعديل اليوم"
+                                                    title="Edit Day"
                                                 >
                                                     <Edit2 size={14} />
                                                 </button>
@@ -493,7 +493,7 @@ export default function EventBuilder({ event, onBack }) {
                                             className="flex-1 md:flex-none px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition flex items-center justify-center gap-2"
                                         >
                                             <Plus size={16} />
-                                            <span>إضافة Slot</span>
+                                            <span>Add Slot</span>
                                         </button>
                                         <button
                                             onClick={() => handleDeleteDay(day.day_id)}
@@ -545,7 +545,7 @@ export default function EventBuilder({ event, onBack }) {
                                                                 ? 'text-green-600 bg-green-50 border-green-200 hover:bg-green-100'
                                                                 : 'text-gray-400 bg-gray-50 border-gray-200 hover:bg-gray-100'
                                                                 }`}
-                                                            title={slot.show_presenter ? 'إخفاء اسم المحاضر' : 'إظهار اسم المحاضر'}
+                                                            title={slot.show_presenter ? 'Hide Speaker' : 'Show Speaker'}
                                                         >
                                                             {slot.show_presenter ? <UserCheck size={18} /> : <UserX size={18} />}
                                                         </button>
@@ -553,14 +553,14 @@ export default function EventBuilder({ event, onBack }) {
                                                     <button
                                                         onClick={() => handleEditSlot(slot)}
                                                         className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition border border-transparent hover:border-blue-200 flex-1 md:flex-none justify-center flex"
-                                                        title="تعديل"
+                                                        title="Edit"
                                                     >
                                                         <Edit2 size={18} />
                                                     </button>
                                                     <button
                                                         onClick={() => handleDeleteSlot(slot.slot_id)}
                                                         className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition border border-transparent hover:border-red-200 flex-1 md:flex-none justify-center flex"
-                                                        title="حذف"
+                                                        title="Delete"
                                                     >
                                                         <Trash2 size={18} />
                                                     </button>
@@ -568,7 +568,7 @@ export default function EventBuilder({ event, onBack }) {
                                             </div>
                                         ))
                                     ) : (
-                                        <p className="text-gray-400 text-center py-8">لا توجد Slots</p>
+                                        <p className="text-gray-400 text-center py-8">No slots added</p>
                                     )}
                                 </div>
                             </div>
@@ -577,7 +577,7 @@ export default function EventBuilder({ event, onBack }) {
                         {days.length === 0 && (
                             <div className="text-center py-16 text-gray-400">
                                 <Calendar size={64} className="mx-auto mb-4 opacity-30" />
-                                <p>ابدأ بإضافة أيام الفعالية</p>
+                                <p>Start by adding event days</p>
                             </div>
                         )}
                     </div>

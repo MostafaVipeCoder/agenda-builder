@@ -85,14 +85,14 @@ export default function Dashboard() {
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                         <div className="text-center md:text-right">
                             <h1 className="text-3xl font-light text-gray-900">Event Agenda Builder</h1>
-                            <p className="text-gray-500 mt-1">إدارة الأجندات للفعاليات</p>
+                            <p className="text-gray-500 mt-1">Manage Event Agendas</p>
                         </div>
                         <button
                             onClick={() => setShowCreateModal(true)}
                             className="w-full md:w-auto flex items-center justify-center gap-2 bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition"
                         >
                             <Plus size={20} />
-                            <span>انشاء أجندة جديدة</span>
+                            <span>Create New Agenda</span>
                         </button>
                     </div>
                 </div>
@@ -104,14 +104,14 @@ export default function Dashboard() {
                     <div className="flex items-center justify-center h-64">
                         <div className="flex flex-col items-center gap-4">
                             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-black"></div>
-                            <p className="text-gray-500 font-medium">الصبر جميل</p>
+                            <p className="text-gray-500 font-medium">Loading...</p>
                         </div>
                     </div>
                 ) : events.length === 0 ? (
                     <div className="text-center py-16">
                         <Calendar size={64} className="mx-auto text-gray-300 mb-4" />
-                        <h3 className="text-xl text-gray-600 mb-2">لا توجد فعاليات</h3>
-                        <p className="text-gray-400">ابدأ بإنشاء فعالية جديدة</p>
+                        <h3 className="text-xl text-gray-600 mb-2">No events found</h3>
+                        <p className="text-gray-400">Start by creating a new event</p>
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -143,7 +143,7 @@ export default function Dashboard() {
                                         className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition min-w-[100px]"
                                     >
                                         <Edit2 size={16} />
-                                        <span>تعديل</span>
+                                        <span>Edit</span>
                                     </button>
                                     <a
                                         href={`#/agenda/${event.event_id}`}
@@ -158,7 +158,7 @@ export default function Dashboard() {
                                             ? 'bg-green-50 border-green-200 text-green-600'
                                             : 'border-gray-300 hover:bg-gray-50'
                                             }`}
-                                        title="نسخ الرابط"
+                                        title="Copy Link"
                                     >
                                         {copiedId === event.event_id ? <Check size={16} /> : <Copy size={16} />}
                                     </button>
@@ -181,13 +181,13 @@ export default function Dashboard() {
                     <div className="bg-white rounded-2xl w-full max-w-md p-8 shadow-2xl scale-in-center">
                         {createStatus === 'idle' ? (
                             <>
-                                <h3 className="text-2xl font-light mb-6 text-gray-900">انشاء أجندة جديدة</h3>
+                                <h3 className="text-2xl font-light mb-6 text-gray-900">Create New Agenda</h3>
                                 <input
                                     type="text"
                                     autoFocus
                                     value={newEventName}
                                     onChange={(e) => setNewEventName(e.target.value)}
-                                    placeholder="اسم الفعالية..."
+                                    placeholder="Event Name..."
                                     className="w-full px-4 py-3 border border-gray-200 rounded-xl mb-6 focus:outline-none focus:ring-2 focus:ring-black transition"
                                 />
                                 <div className="flex gap-3">
@@ -195,13 +195,13 @@ export default function Dashboard() {
                                         onClick={handleCreateEvent}
                                         className="flex-1 bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-800 transition font-medium"
                                     >
-                                        انشاء
+                                        Create
                                     </button>
                                     <button
                                         onClick={() => setShowCreateModal(false)}
                                         className="flex-1 bg-gray-100 text-gray-600 px-6 py-3 rounded-xl hover:bg-gray-200 transition font-medium"
                                     >
-                                        إلغاء
+                                        Cancel
                                     </button>
                                 </div>
                             </>
