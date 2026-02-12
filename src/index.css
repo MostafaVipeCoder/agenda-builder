@@ -2,9 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Hepta+Slab:wght@100;200;300;400;500;600;700;800;900&family=Jomhuria&display=swap');
+
+@layer base {
+    body {
+        @apply font-manrope bg-slate-50 text-[#0d0e0e] antialiased selection:bg-[#1a27c9]/10 selection:text-[#1a27c9];
+        transition: background-color 0.3s ease;
+    }
+}
+
 @layer utilities {
     .scale-in-center {
         animation: scale-in-center 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+
+    .font-manrope {
+        font-family: 'Manrope', sans-serif;
+    }
+
+    .font-hepta {
+        font-family: 'Hepta Slab', serif;
+    }
+
+    .font-jomhuria {
+        font-family: 'Jomhuria', serif;
+    }
+
+    .transition-premium {
+        transition-property: all;
+        transition-duration: 400ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
 }
 
@@ -20,10 +47,6 @@
     }
 }
 
-.fade-in {
-    animation: fadeIn 0.3s ease-in;
-}
-
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -32,4 +55,24 @@
     to {
         opacity: 1;
     }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.4s ease-out both;
+}
+
+.animate-slideInRight {
+    animation: slideInRight 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
